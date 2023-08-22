@@ -1,0 +1,3 @@
+[submodule "polish-dictionary"]
+	path = polish-dictionary
+	url = https://github.com/sigo/polish-dictionary
