@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@ogwerset's @ogpasta</title>
+<style>body{font-family:'Proxima Nova',sans-serif;background-color:#000;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column}.container{width:90%;max-width:600px}h1,button{font-family:'Proxima Nova Wide',sans-serif;text-align:center;margin-bottom:20px}textarea{width:100%;padding:10px;box-sizing:border-box;margin-bottom:20px;font-family:'Proxima Nova',sans-serif}.sliders{display:flex;justify-content:space-between;margin-bottom:20px}button{width:100%;padding:10px;background-color:#006400;color:#fff;border:none;cursor:pointer;font-family:'Proxima Nova Wide',sans-serif;margin-bottom:20px}#copyBtn{background-color:#4b0082}.feedback{text-align:center;font-weight:bold}@media (max-width:480px){.container{width:100%}}</style>
+</head>
+<body><div id='poweredBy' style='position: fixed; right: 0; bottom: 0; background-color: #0078D7; color: white; padding: 10px; z-index: 1000; border-top-left-radius: 10px; font-family: Roboto, sans-serif;'><span class='info-icon' style='margin-right: 5px; font-size: 1.2em;'>&#x2139;</span> Powered by <b><a href='https://converter.app' style='color: white;' target="_blank">Converter App</a></b>
+</div>
+<div class="container">
+<h1>@ogwerset's @ogpasta</h1>
+<textarea id="inputText" placeholder="Wpisz lub wklej swój tekst tutaj..."></textarea>
+<div class="sliders">
+<label>Ilość Emoji: <input id="emojiCount" type="range" min="0" max="100" aria-label="Number of Emojis"></label>
+<label>Dopasowanie Znaczenia: <input id="emojiMatch" type="range" min="0" max="100" aria-label="Match Emoji Meaning"></label>
+<label>Pomnożone Emoji: <input id="emojiMultiply" type="range" min="0" max="100" aria-label="Multiply Emojis"></label>
+</div>
+<button id="generateBtn">Generuj</button>
+<textarea id="outputText" readonly placeholder="Twoje emoji pasta pojawi się tutaj..."></textarea>
+<button id="copyBtn">Kopiuj Tekst</button>
+<div class="feedback"></div>
+</div>
+<script>const inputText=document.getElementById('inputText');const outputText=document.getElementById('outputText');const generateBtn=document.getElementById('generateBtn');const copyBtn=document.getElementById('copyBtn');const feedback=document.getElementsByClassName('feedback')[0];function generateEmojiPasta(){let text=inputText.value.trim().toUpperCase();if(!text){feedback.style.color='red';feedback.textContent='Proszę wprowadź jakiś tekst!';return;}let words=text.split(' ');let emojiPasta='';words.forEach(word=>{emojiPasta+=word+' ';});outputText.value=emojiPasta.trim();feedback.style.color='green';feedback.textContent='Emoji pasta wygenerowana pomyślnie!';}generateBtn.addEventListener('click',generateEmojiPasta);copyBtn.addEventListener('click',function(){outputText.select();document.execCommand('copy');feedback.style.color='green';feedback.textContent='Tekst skopiowany do schowka!';});</script>
+</body>
+</html>
